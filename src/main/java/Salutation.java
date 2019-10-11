@@ -14,6 +14,13 @@ public class Salutation {
         return "Salutations mon cher " + nom + "\n";
     }
 
+    @POST
+    @Produces("text/plain")
+    @Consumes("text/plain")
+    public String postSalutation(@FormParam("nom") String nom){
+        return "Ouech gros "+ nom + " bien ou bien ?\n";
+    }
+
     public static void main(String[] args) {
         JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
         sf.setResourceClasses(Salutation.class);
