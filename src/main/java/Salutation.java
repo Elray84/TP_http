@@ -14,12 +14,24 @@ public class Salutation {
         return "Salutations mon cher " + nom + "\n";
     }
 
+    @GET
+    @Produces("text/html")
+    @Consumes("text/plain")
+    public String getHTMLSalutation(@QueryParam("nom") String nom) {
+        return "<body><h1>Salutations !</h1>Alors " + nom + " on s'en va sans dire au revoir ?</body>"; }
+
     @POST
     @Produces("text/plain")
     @Consumes("text/plain")
     public String postSalutation(@FormParam("nom") String nom){
         return "Ouech gros "+ nom + " bien ou bien ?\n";
     }
+
+    @POST
+    @Produces("text/html")
+    @Consumes("text/plain")
+    public String postHTMLSalutation(@QueryParam("nom") String nom) {
+        return "<body><h1>Salutations !</h1>Alors " + nom + " on s'en va sans dire au revoir ?</body>"; }
 
     public static void main(String[] args) {
         JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
