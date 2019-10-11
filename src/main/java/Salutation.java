@@ -11,7 +11,7 @@ public class Salutation {
     @Produces("text/plain")
     @Consumes("text/plain")
     public String getSalutation(@QueryParam("nom") String nom){
-        return "Salutations mon cher " + nom;
+        return "Salutations mon cher " + nom + "\n";
     }
 
     public static void main(String[] args) {
